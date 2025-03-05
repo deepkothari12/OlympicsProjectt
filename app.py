@@ -6,6 +6,7 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.figure_factory as ff
+import chatbot
 
 
 df = pd.read_csv('athlete_events.csv')
@@ -17,7 +18,7 @@ st.sidebar.title("Olympics Analysis")
 st.sidebar.image('https://e7.pngegg.com/pngimages/1020/402/png-clipart-2024-summer-olympics-brand-circle-area-olympic-rings-olympics-logo-text-sport.png')
 user_menu = st.sidebar.radio(
     'Select an Option',
-    ('Medal Tally','Overall Analysis','Country-wise Analysis','Athlete wise Analysis'))
+    ('Medal Tally','Overall Analysis','Country-wise Analysis','Athlete wise Analysis' , 'ChatBot'))
 
 
 if user_menu == 'Medal Tally':
@@ -181,3 +182,11 @@ if user_menu == 'Athlete wise Analysis':
     fig = px.line(final, x="Year", y=["Male", "Female"])
     fig.update_layout(autosize=False, width=1000, height=600)
     st.plotly_chart(fig)
+
+
+if user_menu == "ChatBot":
+    search_query = st.text_input("Enter search term:")
+    if st.button("Maro Muje Maroo"):
+        responce = chatbot.chatbot(search_query)
+        #print("Done")
+        st.text(responce['choices'][0]["message"]['content'])
