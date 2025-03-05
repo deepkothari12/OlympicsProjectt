@@ -15,10 +15,10 @@ region_df = pd.read_csv('noc_regions.csv')
 df = proccessor.preprocess(df,region_df)
 
 st.sidebar.title("Olympics Analysis")
-st.sidebar.image('https://e7.pngegg.com/pngimages/1020/402/png-clipart-2024-summer-olympics-brand-circle-area-olympic-rings-olympics-logo-text-sport.png')
+st.sidebar.image('https://tse1.mm.bing.net/th?id=OIP.ik2NsDKgJSpOkHjkQ2mtbQAAAA&pid=Api&P=0&h=180')
 user_menu = st.sidebar.radio(
     'Select an Option',
-    ('Medal Tally','Overall Analysis','Country-wise Analysis','Athlete wise Analysis' , 'ChatBot'))
+    ('Medal Tally','Overall Analysis','Country-wise Analysis','Athlete wise Analysis' , 'Koi Questions?'))
 
 
 if user_menu == 'Medal Tally':
@@ -184,7 +184,7 @@ if user_menu == 'Athlete wise Analysis':
     st.plotly_chart(fig)
 
 
-if user_menu == "ChatBot":
+if user_menu == "Koi Questions?":
     search_query = st.text_input("Enter search term:")
     if st.button("Maro Muje Maroo"):
         responce = chatbot.chatbot(search_query)
