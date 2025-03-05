@@ -187,6 +187,9 @@ if user_menu == 'Athlete wise Analysis':
 if user_menu == "Koi Questions?":
     search_query = st.text_input("Enter search term:")
     if st.button("Maro Muje Maroo"):
-        responce = chatbot.chatbot(search_query)
-        #print("Done")
-        st.text(responce['choices'][0]["message"]['content'])
+        if search_query:
+            responce = chatbot.chatbot(search_query)
+            #print("Done")
+            st.text(responce['choices'][0]["message"]['content'])
+        else:
+            st.text("Pehle Kuch Likhle Bhai")
