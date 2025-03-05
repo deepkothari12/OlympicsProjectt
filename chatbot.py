@@ -11,8 +11,10 @@ def chatbot(message):
             # print(OPENROUTER_API_KEY)
     try:
         OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+        OPENROUTER_BASE_URL = os.getenv("OPENROUTER_BASE_URL")
+        print(OPENROUTER_BASE_URL)
         client = OpenAI(
-        base_url="https://openrouter.ai/api/v1",
+        base_url= OPENROUTER_BASE_URL,
         api_key= OPENROUTER_API_KEY,
 
         )
