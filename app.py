@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.figure_factory as ff
 import chatbot
-
+import baatchit
 
 df = pd.read_csv('athlete_events.csv')
 region_df = pd.read_csv('noc_regions.csv')
@@ -189,7 +189,9 @@ if user_menu == "Koi Questions?":
     if st.button("Maro Muje Maroo"):
         if search_query:
             responce = chatbot.chatbot(search_query)
+            # responce = baatchit.bott(search_query)
             #print("Done")
+            # st.text(responce['matches'][0]['metadata']['text'])
             st.text(responce['choices'][0]["message"]['content'])
         else:
             st.text("Pehle Kuch Likhle Bhai")
